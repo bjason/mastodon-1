@@ -1,0 +1,17 @@
+- content_for :page_title do
+  = t('global_mute_words.index.title')
+ 
+.table-wrapper
+  %table.table
+    %thead
+      %tr
+        %th= t('global_mute_words.index.phrase')
+        %th
+    %tbody
+      - @global_mute_words.each do |global_mute_word|
+        %tr
+          %td= global_mute_word.phrase
+          %td
+            = table_link_to 'times', t('global_mute_words.index.delete'), global_mute_word_path(global_mute_word), method: :delete
+
+= link_to t('global_mute_words.new.title'), new_global_mute_word_path, class: 'button'
