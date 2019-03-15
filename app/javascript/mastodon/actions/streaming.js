@@ -8,6 +8,7 @@ import {
 import { updateNotifications, expandNotifications } from './notifications';
 import { updateConversations } from './conversations';
 import { fetchFilters } from './filters';
+import { fetchGlobalMuteWords } from './global_mute_words';
 import { getLocale } from '../locales';
 
 const { messages } = getLocale();
@@ -38,6 +39,9 @@ export function connectTimelineStream (timelineId, path, pollingRefresh = null, 
         case 'filters_changed':
           dispatch(fetchFilters());
           break;
+        //case 'global_mute_words_changed':
+        //  dispatch(fetchGlobalMuteWords());
+        //  break;
         }
       },
     };

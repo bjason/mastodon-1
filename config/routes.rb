@@ -8,9 +8,6 @@ Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
 Rails.application.routes.draw do
   get 'global_mute_words/new'
   get 'global_mute_words/index'
-  get 'global_mute_words/edit'
-  get 'global_mute_words/new'
-  get 'global_mute_words/index'
   mount LetterOpenerWeb::Engine, at: 'letter_opener' if Rails.env.development?
 
   authenticate :user, lambda { |u| u.admin? } do
@@ -303,7 +300,7 @@ Rails.application.routes.draw do
       resources :reports,      only: [:create]
       resources :filters,      only: [:index, :create, :show, :update, :destroy]
       resources :endorsements, only: [:index]
-      resources :global_mute_words, only: [:index, :create, :new, :destroy]
+      resources :global_mute_words, only: [:index, :show]
 
       namespace :apps do
         get :verify_credentials, to: 'credentials#show'

@@ -60,6 +60,7 @@ en:
           suspend: Suspend and irreversibly delete account data
         warning_preset_id: Use a warning preset
       defaults:
+        action: Action
         autofollow: Invite to follow your account
         avatar: Avatar
         bot: This is a bot account

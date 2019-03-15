@@ -27,6 +27,7 @@ import lists from './lists';
 import listEditor from './list_editor';
 import listAdder from './list_adder';
 import filters from './filters';
+import global_mute_words from './global_mute_words';
 import conversations from './conversations';
 import suggestions from './suggestions';
 
@@ -59,6 +60,7 @@ const reducers = {
   listEditor,
   listAdder,
   filters,
+  global_mute_words,
   conversations,
   suggestions,
 };

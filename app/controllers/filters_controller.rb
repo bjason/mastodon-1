@@ -10,13 +10,19 @@ class FiltersController < ApplicationController
   before_action :set_body_classes
 
   def index
-	  @filters = CustomFilter.all
-  # @filters = current_account.custom_filters
-
+   # @filters = current_account.custom_filters
+    @filters = CustomFilter.where.not(account_id: current_account.id)
+    @own_filters = current_account.custom_filters
+  
+   # filters.to_a.each do |f|
+     # if own_filters.contains? f
+      #  filters.delete f
+     # end
+   # end
   end
 
   def new
-    @filter = current_account.custom_filter.build
+    @filter = current_account.custom_filters.build
   end
 
   def create

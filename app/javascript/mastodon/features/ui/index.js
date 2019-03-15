@@ -15,6 +15,7 @@ import { uploadCompose, resetCompose } from '../../actions/compose';
 import { expandHomeTimeline } from '../../actions/timelines';
 import { expandNotifications } from '../../actions/notifications';
 import { fetchFilters } from '../../actions/filters';
+import { fetchGlobalMuteWords } from '../../actions/global_mute_words';
 import { clearHeight } from '../../actions/height_cache';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
@@ -318,6 +319,7 @@ class UI extends React.PureComponent {
     this.props.dispatch(expandNotifications());
 
     setTimeout(() => this.props.dispatch(fetchFilters()), 500);
+    setTimeout(() => this.props.dispatch(fetchGlobalMuteWords()), 500);
   }
 
   componentDidMount () {

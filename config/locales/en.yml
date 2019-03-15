@@ -609,8 +609,7 @@ en:
       invalid_irreversible: Irreversible filtering only works with home or notifications context
     index:
       delete: Delete
-      title: Filters
-      title_shared: Shared Filters
+      title: Shared filters
     new:
       title: Add new filter
   followers:

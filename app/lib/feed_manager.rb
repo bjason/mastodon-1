@@ -214,8 +214,15 @@ class FeedManager
       end
     end
 
+    # This seems to be filtering permanently...
+    global_mute_words = GlobalMuteWord.select(:phrase).pluck(:phrase).uniq
+    global_mute_words.map! do |word|
+      /#{Regexp.escape(word)}/i
+    end
 
-    # active_filters += Rails.cache.fetch("global mute words") { GlobalMuteWord.all.to_a }.to_a
+    active_filters += global_mute_words
+
+   # active_filters += Rails.cache.fetch("global mute words") { GlobalMuteWord.all.to_a }.to_a
 
     return false if active_filters.empty?
 
